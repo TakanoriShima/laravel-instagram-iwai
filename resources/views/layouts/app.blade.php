@@ -24,9 +24,11 @@
                 <div class="collapse navbar-collapse" id="nav-bar">
                     <ul class="navbar-nav mr-auto"></ul>
                     <ul class="navbar-nav">
+                        <!--ログイン認証されている場合-->
                         @if(Auth::check())
                         <li class="navbar-text text-success bg-white p-2 mr-5">{{ Auth::user()->name }}</li>
                         <li>{!! link_to_route('users.index', '会員一覧', [],['class' => 'nav-link']) !!}</li>
+                        <!--ユーザーが新規プロフィール登録の場合-->
                         @if(!Auth::user()->profile()->get()->first())
                         <li>{!! link_to_route('profiles.create', 'プロフィール登録', [], ['class' => 'nav-link']) !!}</li>
                         @else
