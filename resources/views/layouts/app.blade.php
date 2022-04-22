@@ -12,8 +12,12 @@
     <body>
         <header class="mb-4">
             <nav class="navbar navbar-expand-sm navbar-dark bg-info">
+                <!--ユーザーがログインしていた場合とそうでない場合のリンク先-->
+                @if(Auth::check())
+                <a class="navbar-brand" href="/top">会員制写真投稿サイト</a>
+                @else
                 <a class="navbar-brand" href="/">会員制写真投稿サイト</a>
-                
+                @endif
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -21,6 +25,11 @@
                 <div class="collapse navbar-collapse" id="nav-bar">
                     <ul class="navbar-nav mr-auto"></ul>
                     <ul class="navbar-nav">
+                        <!--ユーザーがログインしていた場合のリンク先-->
+                        @if(Auth::check())
+                        <li>{!! link_to_route('users.index', '会員一覧', [],['class' => 'nav-link']) !!}</li>
+                        <li>{!! link_to_route('logout.get', 'ログアウト', [],['class' => 'nav-link']) !!}</li>
+                        @endif
                     </ul>
                 </div>
             </nav>
