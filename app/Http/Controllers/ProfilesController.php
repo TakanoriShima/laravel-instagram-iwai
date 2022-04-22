@@ -39,7 +39,43 @@ class ProfilesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validation
+        // for image ref) https://qiita.com/maejima_f/items/7691aa9385970ba7e3ed
+        $this->validate($request, [
+            'nickname' => 'required',
+            'gender' => 'required',
+            'introduction' => 'required',
+            'image' => [
+                'file',
+                'mimes:jpeg,jpg,png'
+            ]
+        ]);
+        
+        // 入力情報の取得
+        $nickname = $request->input('nickname');
+        $gender = $request->input('gender');
+        $introduction = $request->input('introduction');
+        $file = $request->image;
+        
+        // 参照: https://qiita.com/ryo-program/items/35bbe8fc3c5da1993366
+        // 画像ファイルのアップロード
+        if($file) {
+            // 現在時刻ともともとのファイル名を組み合わせてランダムなファイル名を作成
+            $image = time() .  $file->getClientOriginalName();
+            // アップロードするフォルダ名を取得
+            $target_path = public_path('uploads/');
+            // アップロード処理
+            $file->move($target_path, $image);
+        } else {
+            // 画像ファイルが選択されていなければ空の文字列をセット
+            $image = '';
+        }
+        
+        // 入力情報をもとに新しいインスタンスを作成
+        \Auth::user()->profile()->create(['nickname' => $nickname, 'gender' => $gender, 'introduction' => $introduction, 'image' => $image]);
+        
+        // トップページへリダイレクト
+        return redirect('/top')->with('flash_message', 'プロフィールを作成しました');
     }
 
     /**

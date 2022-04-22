@@ -9,24 +9,23 @@
         <div class="col-sm-6 offset-sm-3 mt-5">
 
             {!! Form::open(['route' => 'signup.post']) !!}
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
-                    {!! Form::label('name', '1. 名前') !!}
+                    {!! Form::label('name', '名前') !!}
                     {!! Form::text('name', old('name'),['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('email', '2. メールアドレス') !!}
+                    {!! Form::label('email', 'メールアドレス') !!}
                     {!! Form::email('email', old('email'),['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('password', '3. パスワード') !!}
+                    {!! Form::label('password', 'パスワード') !!}
                     {!! Form::password('password', ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('password_confirmation', '4. パスワードの確認') !!}
+                    {!! Form::label('password_confirmation', 'パスワードの確認') !!}
                     {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
                 </div>
 
