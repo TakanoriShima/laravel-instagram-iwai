@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+body {
+    background: #FFFAF0;
+}
+
 /*media query*/
 /*ref)*/
 /*https://www.seojuku.com/blog/responsive-mediaquery.html*/

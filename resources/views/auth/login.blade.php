@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'ログイン')
 @section('content')
-    <div class="text-center">
+    <div class="text-center mt-5">
         <h1 class="text-primary">ログイン</h1>
     </div>
     
@@ -10,12 +10,12 @@
             <form action="/login" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
-                    <label for="email">メールアドレス</label>
+                    <label for="email">Eメール: </label>
                     <input type="email" name="email" value="form-control" id="email">
                 </div>
                 
                 <div class="form-group">
-                    <label for="password">パスワード</label>
+                    <label for="password">パスワード: </label>
                     <input type="password" name="password" value="form-control" id="password">
                 </div>
                 
