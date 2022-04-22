@@ -8,30 +8,30 @@
     <div class="row">
         <div class="col-sm-6 offset-sm-3 mt-5">
 
-            <form method="POST" action="/signup">
+            {!! Form::open(['route' => 'signup.post']) !!}
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
-                    <label for="name">1. 名前</label>
-                    <input type="text"  name="name" class="form-control" id="name">
+                    {!! Form::label('name', '1. 名前') !!}
+                    {!! Form::text('name', old('name'),['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    <label for="email">2. メールアドレス</label>
-                    <input type="email" name="email" class="form-control" id="email">
+                    {!! Form::label('email', '2. メールアドレス') !!}
+                    {!! Form::email('email', old('email'),['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    <label for="password">3. パスワード</label>
-                    <input type="password" name="password"  class="form-control" id="password">
+                    {!! Form::label('password', '3. パスワード') !!}
+                    {!! Form::password('password', ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    <label for="password_confirmation">4. パスワードの確認</label>
-                    <input type="password" name="password_confirmation" class="form-control" id="password_confirmation">
+                    {!! Form::label('password_confirmation', '4. パスワードの確認') !!}
+                    {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-block mt-5">登録</button>
-            </form>
+                {!! Form::submit('登録', ['class' => 'offset-sm-3 col-sm-6 btn btn-primary btn-block mt-5']) !!}
+            {!! Form::close() !!}
         </div>
     </div>
 @endsection
