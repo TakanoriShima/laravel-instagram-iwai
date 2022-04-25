@@ -2,7 +2,7 @@
 @section('title', '投稿ID:' . $post->id . 'の詳細')
 @section('content')
     <div class="text-center mt-4">
-        <h1 class="text-primary">投稿ID {{ $post->id }} の詳細</h1>
+        <h1 class="text-primary">投稿ID: {{ $post->id }} の詳細</h1>
     </div>
     <div class="row mt-4">
         <table class="table table-bordered table-striped text-center">
