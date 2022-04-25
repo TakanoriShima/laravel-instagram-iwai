@@ -12,7 +12,9 @@ class Profile extends Model
         'nickname', 'gender', 'introduction', 'image',
     ];
     
-    // Userモデルと1対1の関係を張る
+    /**
+     * このプロフィールを所有するユーザー（ Userモデルとの多対1の関係を定義）。
+     */
     public function user() 
     {
         // Userデータを引っ張ってくる
