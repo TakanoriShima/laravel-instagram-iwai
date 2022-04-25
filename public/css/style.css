@@ -11,6 +11,16 @@ body {
     box-shadow: 0 0 10px #444444;
 }
 
+/* 投稿画像の調整 */
+td img {
+    width: 200px;
+}
+
+/* 投稿タイトル */
+.image_title {
+    width: 100%;
+}
+
 /*media query*/
 /*ref)*/
 /*https://www.seojuku.com/blog/responsive-mediaquery.html*/

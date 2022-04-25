@@ -47,5 +47,8 @@ Route::group(['middleware' => ['auth']], function () {
     
     // プロフィール関係
     Route::resource('profiles', 'ProfilesController');
+    
+    // 画像投稿関係
+    Route::resource('posts', 'PostsController');
 
 });
