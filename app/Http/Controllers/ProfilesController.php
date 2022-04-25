@@ -103,7 +103,7 @@ class ProfilesController extends Controller
     // プロフィールの編集画面
     public function edit(Profile $profile)
     {
-        // ログインしている自分のプロフィールの場合
+        // 注目しているプロフィールがログインしているユーザーのものならば
         if($profile->user_id === \Auth::id()) {
             // view(そのユーザーが持つプロフィールの編集画面)の呼び出し
             return view('profiles.edit', compact('profile'));
@@ -123,7 +123,7 @@ class ProfilesController extends Controller
     // プロフィールの更新
     public function update(Request $request, Profile $profile)
     {
-        // ログインしている自分のプロフィールの場合
+        // 注目しているプロフィールがログインしているユーザーのものならば
         if($profile->user_id === \Auth::id()) {
             // vaidation
             // for image ref) https://qiita.com/maejima_f/items/7691aa9385970ba7e3ed

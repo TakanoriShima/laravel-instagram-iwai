@@ -24,4 +24,15 @@
             </tr>
         </table>
     </div>
+    
+    @if($post->user->id === Auth::id())
+    <div class="row mt-4">
+        {!! link_to_route('posts.edit', '編集' , ['id' => $post->id ],['class' => 'btn btn-success offset-sm-4 col-sm-4']) !!}
+    </div>
+    {!! Form::open(['route' => ['posts.destroy', 'id' => $post->id ], 'method' => 'DELETE']) !!}
+    <div class="row mt-4">
+        {!! Form::submit('削除', ['class' => 'btn btn-danger offset-sm-4 col-sm-4', 'onClick' => 'return deleteAlert();']) !!}
+    </div>
+    {!! Form::close() !!}
+    @endif
 @endsection
