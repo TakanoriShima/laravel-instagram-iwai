@@ -11,7 +11,7 @@
             {!! Form::open(['route' => ['posts.store'], 'files' => true]) !!}
                 <div class="form-group">
                     {!! Form::label('title', '1. タイトル') !!}
-                    {!! Form::text('title', old('title'),['class' => 'form-control']) !!}
+                    {!! Form::text('title', old('title'),　['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
