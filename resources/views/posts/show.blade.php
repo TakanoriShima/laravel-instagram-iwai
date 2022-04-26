@@ -39,11 +39,11 @@
     <div class="text-center mt-5">
         <h2 class="text-success">コメント一覧</h2>
     </div>
-     @if(count($comments) !== 0)
+    @if(count($comments) !== 0)
     <table class="table table-bordered table-striped text-center mt-5">
         <tr>
             <th>ID</th>
-            <th>名前</th>
+            <th>投稿者</th>
             <th>コメント内容</th>
             <th>投稿日時</th>
         </tr>
@@ -68,10 +68,10 @@
             
             {!! Form::open(['route' => ['comments.store', 'id' => $post->id ]]) !!}
                 <div class="form-group">
-                    {!! Form::label('content', 'コメント記入: ') !!}
+                    {!! Form::label('content', 'コメント ') !!}
                     {!! Form::text('content', old('content'), ['class' => 'form-control']) !!}
                 </div>
-                {!! Form::submit('新規コメント投稿', ['class' => 'offset-sm-3 col-sm-6 btn btn-primary btn-block mt-5 mb-5']) !!}
+                {!! Form::submit('コメント投稿', ['class' => 'offset-sm-3 col-sm-6 btn btn-primary btn-block mt-5 mb-5']) !!}
             {!! Form::close() !!}
         </div>
     </div>

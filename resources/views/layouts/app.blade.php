@@ -26,7 +26,7 @@
                     <ul class="navbar-nav">
                     <!--ログイン認証されている場合-->
                     @if(Auth::check())
-                    <li class="navbar-text text-success bg-white p-2 mr-5">{{ Auth::user()->name }}</li>
+                    <li>{!! link_to_route('users.show', Auth::user()->name , ['id' => Auth::user()->id ],['class' => 'navbar-text text-success bg-white p-2 mr-3']) !!}</li>
                     <li>{!! link_to_route('users.index', '会員一覧', [],['class' => 'nav-link']) !!}</li>
                     <!--ユーザーが新規プロフィール登録の場合-->
                     @if(!Auth::user()->profile()->get()->first())
@@ -41,7 +41,6 @@
                 </div>
             </nav>
         </header>
-        
         <div class="container">
             @include('commons.flash_message')
             @include('commons.error_messages')

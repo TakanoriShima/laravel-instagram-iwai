@@ -25,7 +25,9 @@
                 </div>
 
                 {!! Form::submit('更新', ['class' => 'offset-sm-3 col-sm-6 btn btn-primary mt-5']) !!}
+                {!! link_to_route('posts.show', '投稿ID: ' . $post->id . 'の詳細へ戻る' , ['id' => $post->id ],['class' => 'offset-sm-3 col-sm-6 btn btn-danger mt-5']) !!}
             {!! Form::close() !!}
+            
         </div>
     </div>
 @endsection
