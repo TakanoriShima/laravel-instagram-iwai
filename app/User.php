@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Profile; // 追記
 use App\Post; // 追加
+use App\Comment; // 追加
 
 class User extends Authenticatable
 {
@@ -51,8 +52,29 @@ class User extends Authenticatable
     /* 
      * このユーザーが所有する投稿一覧(Postモデルとの1対多の関係を定義)
      */
-     public function posts() {
+     public function posts() 
+    {
         return $this->hasMany(Post::class);
+    }
+     
+    /* 
+     * このユーザーが所有するコメント一覧(Commentモデルとの1対多の関係を定義)
+     */
+     public function comments() 
+    {
+        return $this->hasMany(Comment::class);
+    }
+     
+     // コメント投稿
+     // 会員登録されているあるIDのユーザーが、とある投稿画像に対して、とある内容のコメントをする
+     public function add_comment($post_id, $content) 
+    {
+         $comment = new Comment();
+         $comment->user_id = $this->id;
+         $comment->post_id = $post_id;
+         $comment->content = $content;
+         // コメントインスタンスを保存
+         $comment->save();
      }
     
 }
