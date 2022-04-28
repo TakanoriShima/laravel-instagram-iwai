@@ -54,6 +54,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'posts/{id}'], function () {
        // 投稿に関するコメント
        Route::post('comment', 'CommentsController@store')->name('comments.store');
+       
+       // いいね系
+        Route::post('favorite', 'FavoritesController@store')->name('posts.favorite');
+        Route::delete('unfavorite', 'FavoritesController@destroy')->name('posts.unfavorite');
     });
 
 });
